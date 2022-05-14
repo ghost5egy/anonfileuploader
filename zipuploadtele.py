@@ -1,5 +1,8 @@
 import shutil, sys, requests
 
+def helpmsg():
+        print('{} filedir zipfile'.format(sys.argv[0]))
+
 def sendtele(webhookurl, url):
         messaget = webhookurl + 'the link is :' + url
         result = requests.get(messaget)
