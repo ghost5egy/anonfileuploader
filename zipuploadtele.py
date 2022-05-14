@@ -15,7 +15,7 @@ def sendtele(webhookurl, url):
 
 def senddiscord(webhookurl, url):
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-        payload = {"content": "the link is :" + url}
+        payload = {"content": "the link is :\n" + url}
         result = requests.post(webhookurl, headers=headers, data=json.dumps(payload))
         try:
                 result.raise_for_status()
