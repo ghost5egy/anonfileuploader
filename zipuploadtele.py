@@ -11,7 +11,7 @@ def sendtele(webhookurl, url):
         except requests.exceptions.HTTPError as e:
                 print(e)
         else:
-                print("sent with code {}.".format(result.status_code))
+                print("Telegram: sent with code {}.".format(result.status_code))
 
 def senddiscord(webhookurl, url):
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -22,7 +22,7 @@ def senddiscord(webhookurl, url):
         except requests.exceptions.HTTPError as e:
                 print(e)
         else:
-                print("sent with code {}.".format(result.status_code))
+                print("Discord: sent with code {}.".format(result.status_code))
 
 def uploadanon(file):
         files = {
@@ -41,3 +41,4 @@ if __name__ == '__main__':
         anonlnk = uploadanon(sys.argv[2])
         sendtele('<webhook-telegram>', anonlnk)
         senddiscord('<webhook-discord>', anonlnk)
+        print('URL: {}'.format(anonlnk))
