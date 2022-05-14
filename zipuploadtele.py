@@ -2,7 +2,13 @@ import shutil, sys, requests
 
 def sendtele(webhookurl, url):
         messaget = webhookurl + 'the link is :' + url
-        requests.get(messaget)
+        result = requests.get(messaget)
+        try:
+                result.raise_for_status()
+        except requests.exceptions.HTTPError as e:
+                print(e)
+        else:
+                print("sent with code {}.".format(result.status_code))
 
 def uploadanon(file):
         files = {
